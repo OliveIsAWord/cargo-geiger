@@ -2,6 +2,7 @@ use crate::format::print_config::{colorize, OutputFormat};
 use crate::format::{CrateDetectionStatus, SymbolKind};
 
 use colored::ColoredString;
+use terminal_supports_emoji::{Stream, supports_emoji};
 
 pub struct EmojiSymbols {
     emojis: [&'static str; 3],
@@ -45,7 +46,7 @@ impl EmojiSymbols {
 
     pub fn will_output_emoji(&self) -> bool {
         (self.output_format == OutputFormat::Utf8
-            && console::Term::stdout().features().wants_emoji())
+            && supports_emoji(Stream::Stdout))
             || self.output_format == OutputFormat::GitHubMarkdown
     }
 }

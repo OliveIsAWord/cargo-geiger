@@ -216,7 +216,6 @@ dependencies = [
  "cargo-util",
  "cargo_metadata",
  "colored",
- "console",
  "fs_extra",
  "geiger",
  "insta",
@@ -231,6 +230,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tempfile",
+ "terminal-supports-emoji",
  "url",
  "walkdir",
 ]
@@ -385,7 +385,6 @@ dependencies = [
  "libc",
  "once_cell",
  "terminal_size",
- "unicode-width",
  "winapi",
 ]
 
@@ -1648,6 +1647,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bab24d30b911b2376f3a13cc2cd443142f0c81dda04c118693e35b3835757755"
 dependencies = [
  "winapi-util",
+]
+
+[[package]]
+name = "terminal-supports-emoji"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c8873a7a1f2d286cfedc10663a722309b1c74092852cf149aee738cbe901c6eb"
+dependencies = [
+ "atty",
+ "lazy_static",
 ]
 
 [[package]]
