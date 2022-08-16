@@ -9,7 +9,6 @@ mod parse;
 use cargo_metadata::DependencyKind;
 use std::fmt;
 use std::str::{self, FromStr};
-use strum_macros::EnumIter;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Charset {
@@ -46,7 +45,7 @@ impl FromStr for Charset {
     }
 }
 
-#[derive(Debug, Clone, EnumIter, Eq, PartialEq)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub enum CrateDetectionStatus {
     NoneDetectedForbidsUnsafe,
     NoneDetectedAllowsUnsafe,

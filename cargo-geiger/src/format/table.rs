@@ -249,7 +249,6 @@ mod table_tests {
     use rstest::*;
     use std::collections::HashMap;
     use std::path::Path;
-    use strum::IntoEnumIterator;
 
     #[rstest(
         input_output_format,
@@ -278,7 +277,11 @@ mod table_tests {
         let used_counter_block = create_counter_block();
         let not_used_counter_block = create_counter_block();
 
-        for crate_detection_status in CrateDetectionStatus::iter() {
+        for crate_detection_status in [
+            CrateDetectionStatus::NoneDetectedForbidsUnsafe,
+            CrateDetectionStatus::NoneDetectedAllowsUnsafe,
+            CrateDetectionStatus::UnsafeDetected,
+        ] {
             let table_footer = table_footer(
                 used_counter_block.clone(),
                 not_used_counter_block.clone(),

@@ -9,8 +9,6 @@
 extern crate cargo;
 extern crate colored;
 extern crate petgraph;
-extern crate strum;
-extern crate strum_macros;
 
 use cargo_geiger::args::{Args, HELP};
 use cargo_geiger::cli::{get_cargo_metadata, get_krates, get_workspace};
